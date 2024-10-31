@@ -1,6 +1,7 @@
 ﻿using OOP.Constructions;
 using OOP.Constructions.DTO;
 
+#region lab2
 Console.WriteLine("Hello, World!");
 //var construction1 = new Construction();
 var construction2 = new Construction(23.0f, 45.0f, 4, 4, BuildMaterialEnum.Brick);
@@ -15,7 +16,9 @@ Console.WriteLine("Hello, World!");
 //{
 //    Console.Error.WriteLine(e);
 //}
+#endregion
 
+#region lab3
 // lab 3, zad 1,2
 Construction construction4 = new();
 
@@ -30,3 +33,4 @@ Construction construction5 = new(CCDto);
 
 // lab3, zad 7
 Console.WriteLine($"Koszt:\t{construction5.getSquareCost()}");
+#endregion
