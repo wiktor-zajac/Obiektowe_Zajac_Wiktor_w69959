@@ -1,6 +1,8 @@
 ﻿using OOP.BuildingWrappers;
 using OOP.Constructions;
 using OOP.Constructions.DTO;
+using OOP.IndustrialHalls;
+using OOP.Materials;
 
 #region lab2
 Console.WriteLine("Hello, World!");
@@ -37,9 +39,8 @@ Console.WriteLine($"Koszt:\t{construction5.GetSquareCost()}");
 #endregion
 
 #region lab4
-Construction
-    residential = new(),
-    hall = new();
+Construction residential = new();
+IndustrialHall hall = new();
 
 BuildingWrapper
     wrap1 = new(residential),

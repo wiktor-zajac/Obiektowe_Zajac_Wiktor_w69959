@@ -1,13 +1,8 @@
 ﻿using OOP.Constructions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using OOP.Interfaces;
 namespace OOP.BuildingWrappers
 {
-    internal class BuildingWrapper
+    internal class BuildingWrapper : ISquareCost
     {
         public BuildingWrapper(Construction construction) {
             _construction = construction;
@@ -15,9 +10,20 @@ namespace OOP.BuildingWrappers
 
         private Construction _construction { get; set; }
 
+        public double CalculateSquareCost()
+        {
+            return GetWrappedSquareCost();
+        }
+
+        public void DisplayCostDetails()
+        {
+            _construction.DisplayCostDetails();
+        }
+
         public double GetWrappedSquareCost()
         {
             return _construction.GetSquareCost();
         }
+
     }
 }

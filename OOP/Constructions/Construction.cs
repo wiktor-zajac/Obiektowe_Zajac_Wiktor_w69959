@@ -1,8 +1,11 @@
 ﻿using OOP.Constructions.DTO;
+using OOP.Interfaces;
+using OOP.Materials;
+using System.Security.Cryptography;
 
 namespace OOP.Constructions
 {
-    internal class Construction
+    internal class Construction : ISquareCost, IConstructionInfo
     {
         private BuildMaterialEnum _buildMaterial;
 
@@ -62,6 +65,24 @@ namespace OOP.Constructions
                     break;
             }
             return Height * Width * materialModificator;
+        }
+
+        public double CalculateSquareCost()
+        {
+            return GetSquareCost();
+        }
+
+        public void DisplayCostDetails()
+        {
+            Console.WriteLine($"Square cost details for the building: ");
+            Console.WriteLine($"Height: {Height}, Width: {Width},Entrances: {Entrances}, Human Capacity: {HumanCapacity}, BuildMaterial: {BuildMaterial}");
+            Console.WriteLine($"Square Cost: {CalculateSquareCost()}");
+        }
+
+        public void DisplayConstructionInfo()
+        {
+            Console.WriteLine($"Construction information for the building: ");
+            Console.WriteLine($"Height: {Height}, Width: {Width}, Entrances: { Entrances}, Human Capacity: { HumanCapacity}, BuildMaterial: { BuildMaterial}");
         }
     }
 }

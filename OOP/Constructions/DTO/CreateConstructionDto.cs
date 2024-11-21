@@ -1,4 +1,6 @@
-﻿namespace OOP.Constructions.DTO
+﻿using OOP.Materials;
+
+namespace OOP.Constructions.DTO
 {
     internal class CreateConstructionDto
     {

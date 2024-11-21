@@ -1,4 +1,4 @@
-﻿namespace OOP.Constructions
+﻿namespace OOP.Materials
 {
     internal enum BuildMaterialEnum
     {
