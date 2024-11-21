@@ -1,4 +1,5 @@
-﻿using OOP.Constructions;
+﻿using OOP.BuildingWrappers;
+using OOP.Constructions;
 using OOP.Constructions.DTO;
 
 #region lab2
@@ -33,4 +34,20 @@ Construction construction5 = new(CCDto);
 
 // lab3, zad 7
 Console.WriteLine($"Koszt:\t{construction5.GetSquareCost()}");
+#endregion
+
+#region lab4
+Construction
+    residential = new(),
+    hall = new();
+
+BuildingWrapper
+    wrap1 = new(residential),
+    wrap2 = new(hall);
+#endregion
+
+#region lab5
+
+
+
 #endregion
