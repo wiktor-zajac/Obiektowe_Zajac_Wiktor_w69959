@@ -32,5 +32,5 @@ CreateConstructionDto CCDto = new(5, 4, 3, BuildMaterialEnum.Concrete);
 Construction construction5 = new(CCDto);
 
 // lab3, zad 7
-Console.WriteLine($"Koszt:\t{construction5.getSquareCost()}");
+Console.WriteLine($"Koszt:\t{construction5.GetSquareCost()}");
 #endregion

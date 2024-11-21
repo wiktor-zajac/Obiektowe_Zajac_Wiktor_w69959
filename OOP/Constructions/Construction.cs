@@ -46,7 +46,7 @@ namespace OOP.Constructions
             BuildMaterial = buildMaterial;
         }
 
-        public double getSquareCost()
+        public double GetSquareCost()
         {
             double materialModificator = 0;
             switch (BuildMaterial)
