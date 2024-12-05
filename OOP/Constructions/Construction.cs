@@ -8,6 +8,7 @@ namespace OOP.Constructions
     internal class Construction : ISquareCost, IConstructionInfo
     {
         private BuildMaterialEnum _buildMaterial;
+        private AbstractMaterial _material;
 
         public float Height { get; set; }
         public float Width { get; set; }
@@ -20,6 +21,20 @@ namespace OOP.Constructions
             {
                 ArgumentNullException.ThrowIfNull(value);
                 _buildMaterial = value;
+            }
+        }
+        private AbstractMaterial Material
+        {
+            get => _material;
+            set
+            {
+                _material = _buildMaterial switch
+                {
+                    BuildMaterialEnum.Brik => new BrikMaterial(),
+                    BuildMaterialEnum.Concrete => new ConcreteMaterial(),
+                    BuildMaterialEnum.Wood => new WoodMaterial(),
+                    _ => throw new ArgumentException("Invalid build material type"),
+                };
             }
         }
 
@@ -51,19 +66,14 @@ namespace OOP.Constructions
 
         public double GetSquareCost()
         {
-            double materialModificator = 0;
-            switch (BuildMaterial)
+            double materialModificator = this.Material.GetSquareCost();
+            materialModificator *= BuildMaterial switch
             {
-                case BuildMaterialEnum.Wood:
-                    materialModificator = 0.78;
-                    break;
-                case BuildMaterialEnum.Brick:
-                    materialModificator = 0.8;
-                    break;
-                case BuildMaterialEnum.Concrete:
-                    materialModificator = 0.87;
-                    break;
-            }
+                BuildMaterialEnum.Wood => 0.78,
+                BuildMaterialEnum.Brik => 0.8,
+                BuildMaterialEnum.Concrete => 0.87,
+                _ => throw new ArgumentException("Invalid build material type"),
+            };
             return Height * Width * materialModificator;
         }
 

@@ -7,7 +7,7 @@ using OOP.Materials;
 #region lab2
 Console.WriteLine("Hello, World!");
 //var construction1 = new Construction();
-var construction2 = new Construction(23.0f, 45.0f, 4, 4, BuildMaterialEnum.Brick);
+var construction2 = new Construction(23.0f, 45.0f, 4, 4, BuildMaterialEnum.Brik);
 Console.WriteLine("Hello, World!");
 
 // lab 2, zad 6,7
@@ -45,10 +45,4 @@ IndustrialHall hall = new();
 BuildingWrapper
     wrap1 = new(residential),
     wrap2 = new(hall);
-#endregion
-
-#region lab5
-
-
-
 #endregion

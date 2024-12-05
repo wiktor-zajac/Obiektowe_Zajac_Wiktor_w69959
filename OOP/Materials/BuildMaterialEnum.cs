@@ -2,7 +2,7 @@
 {
     internal enum BuildMaterialEnum
     {
-        Brick,
+        Brik,
         Concrete,
         Wood,
     }
