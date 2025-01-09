@@ -6,7 +6,7 @@ namespace WebAPI.Controllers
     [Route("[controller]/[action]")]
     public class WeatherForecastController : ControllerBase
     {
-        private static string[] Summaries = new[]
+        private string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
@@ -30,45 +30,47 @@ namespace WebAPI.Controllers
             .ToArray();
         }
 
-        [HttpGet]
-        public string GetSummary(int index)
+        [HttpPost("Quot")]
+        public double Quot(int x, int y)
         {
-            return Summaries[index];
+            if (y <= 0) throw new ArgumentOutOfRangeException("Y must bi higher than 0");
+            return x / y;
+        }
+
+        [HttpPost("Prod")]
+        public double Prod(int x, int y)
+        {
+            return x * y;
+        }
+
+        [HttpGet]
+        public string GetSummary(int x)
+        {
+            return Summaries[x];
         }
 
         [HttpPost]
-        public string[] PostSummary(string summary)
+        public string[] PostSummary(string item)
         {
-            Summaries = Summaries.Append(summary).ToArray();
-            return Summaries;
+            var items = Summaries.Append(item);
+            return items.ToArray();
         }
 
         [HttpDelete]
-        public string[] DeleteSummaries(int index)
+        public string[] RemoveSummary(int x)
         {
-            var SummariesList = Summaries.ToList();
-            SummariesList.RemoveAt(index);
-            Summaries = SummariesList.ToArray();
-            return Summaries;
+            var items = Summaries.ToList();
+            items.RemoveAt(x);
+            return items.ToArray();
         }
 
         [HttpPut]
-        public string[] UpdateSummmaries(int index, string summary)
+        public string[] UpdateSummary(int x, string y)
         {
-            Summaries[index] = summary;
-            return Summaries;
+            var items = Summaries.ToList();
+            items[x] = y;
+            return items.ToArray();
         }
 
-        [HttpPost]
-        public float Qote(float x, float y)
-        {
-            return x / y;
-        }
-
-        [HttpPost]
-        public float Prod(float x, float y)
-        {
-            return x / y;
-        }
     }
 }
