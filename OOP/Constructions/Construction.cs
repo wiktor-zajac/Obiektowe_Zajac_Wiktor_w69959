@@ -25,17 +25,13 @@ namespace OOP.Constructions
         }
         private AbstractMaterial Material
         {
-            get => _material;
-            set
-            {
-                _material = _buildMaterial switch
+            get => _buildMaterial switch
                 {
                     BuildMaterialEnum.Brik => new BrikMaterial(),
                     BuildMaterialEnum.Concrete => new ConcreteMaterial(),
                     BuildMaterialEnum.Wood => new WoodMaterial(),
                     _ => throw new ArgumentException("Invalid build material type"),
                 };
-            }
         }
 
         public Construction()
@@ -66,7 +62,7 @@ namespace OOP.Constructions
 
         public double GetSquareCost()
         {
-            double materialModificator = this.Material.GetSquareCost();
+            double materialModificator = this.Material.CalculateMaterialCost();
             materialModificator *= BuildMaterial switch
             {
                 BuildMaterialEnum.Wood => 0.78,
